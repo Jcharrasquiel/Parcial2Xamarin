@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Parcial2Xamarin.MainPage">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="Registro de productos" FontSize="35" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"  TextColor="White" HorizontalTextAlignment="Center" ></Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+        <!--
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <util:CurrencyConverter x:Key="currencyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources> -->
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+            <ContentView  VerticalOptions="FillAndExpand">
+                <Image Source="Registro.png" HorizontalOptions="Center" HeightRequest="200"  />
+            </ContentView>
+        </StackLayout>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <StackLayout>
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="0">
+                        <Label FontAttributes="Bold" FontSize="25" Text="ID:" ></Label>
+                        <Entry  Placeholder="Id" PlaceholderColor="#ff366e9e" x:Name="id"></Entry>
+                        <Button Text="Buscar" Clicked="BuscarUno"></Button>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="0">
+                        <Label FontAttributes="Bold" FontSize="25" Text="Nombre del producto:"></Label>
+                        <Entry Placeholder="Nombre" PlaceholderColor="#ff366e9e" x:Name="nombres"  ></Entry>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="0">
+                        <Label FontAttributes="Bold"  FontSize="25" Text="Precio del producto:"></Label>
+                        <Entry x:Name="precios"  Keyboard="Numeric" Placeholder="Precio" PlaceholderColor="#ff366e9e"
+                         />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="0">
+                        <Label FontAttributes="Bold"  FontSize="25" Text="Cantidad del producto:"></Label>
+                        <Entry Keyboard="Numeric" Placeholder="Cantidad" PlaceholderColor="#ff366e9e" x:Name="cantidads" ></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="0">
+                        <Label FontAttributes="Bold" FontSize="25" Text="Descripcion del producto:"></Label>
+                        <Entry MaxLength="50" HeightRequest="50"    Placeholder="Descripcion"  PlaceholderColor="#ff366e9e" x:Name="descripcions" ></Entry>
+                    </StackLayout>
+
+
+
+
+
+
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="10">
+
+                        <Button Text="Agregar" Clicked="Insertar"></Button>
+                        <!--#   <Button Text="Eliminar" Clicked="Eliminar"></Button> -->
+                       <Button Text="Ver todos" Clicked="VerTodos"></Button>
+                        <Button Text="Limpar" Clicked="Limpiar"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

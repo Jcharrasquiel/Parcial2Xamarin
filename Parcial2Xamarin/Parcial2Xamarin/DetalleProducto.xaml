@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Parcial2Xamarin.DetalleProducto">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="Detalle de los productos" FontSize="35" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"  TextColor="White" HorizontalTextAlignment="Center" ></Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+            <ContentView  VerticalOptions="FillAndExpand">
+                <Image Source="Detalle.png" HorizontalOptions="Center" HeightRequest="200" />
+            </ContentView>
+        </StackLayout>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <StackLayout>
+
+
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="0">
+                        <Label FontAttributes="Bold" FontSize="25" Text="ID:" ></Label>
+                        <Label FontSize="30" TextColor="#f00" x:Name="id"  FontAttributes="Bold" Text="{Binding id}" Grid.Column="2"></Label>
+
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="0">
+                        <Label FontAttributes="Bold" FontSize="25" Text="Nombre del producto:"></Label>
+                        <Label FontSize="30" TextColor="#f00" x:Name="nombres"  FontAttributes="Bold" Text="{Binding Nombres}" Grid.Column="2"></Label>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="0">
+
+                        <Label FontAttributes="Bold"  FontSize="25" Text="Precio del producto:"></Label>
+                        <Label FontSize="30" TextColor="#f00" x:Name="precios"  FontAttributes="Bold" Text="{Binding Precios}" Grid.Column="2"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="0">
+                        <Label FontAttributes="Bold"  FontSize="25" Text="Cantidad del producto:"></Label>
+                        <Label FontSize="30" TextColor="#f00" x:Name="cantidads" FontAttributes="Bold" Text="{Binding Cantidads}" Grid.Column="2"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="0">
+                        <Label FontAttributes="Bold" FontSize="25" Text="Descripcion del producto:"></Label>
+                        <Label FontSize="30" TextColor="#f00"  x:Name="descripcions"  FontAttributes="Bold" Text="{Binding Descripcion}" Grid.Column="2"></Label>
+                    </StackLayout>
+
+
+
+                    <StackLayout Orientation="Vertical" Padding="50,24,30,0" Spacing="10">
+
+                        <Button Text="Regresar" Clicked="Button_Clicked" ></Button>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

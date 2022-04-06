@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Parcial2Xamarin.ListadoProducto">
+
+
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+            <Label Text="Lista de productos" FontSize="35" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White" HorizontalTextAlignment="Center" ></Label>
+            <Grid>
+                <ImageButton
+                BackgroundColor="Transparent"
+                Command="{Binding TestReload}"
+                CommandParameter="{x:Type ListView}"
+                HeightRequest="25"
+                HorizontalOptions="Start"
+                Source="https://i.ibb.co/BVZ1xn3/image.png" />
+
+            </Grid>
+        </StackLayout>
+        
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Nuevo" Clicked="ToolbarItem_Clicked"   />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="5" >
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView >
+                    <Image Source="Listado.png" HorizontalOptions="Center" HeightRequest="200"  />
+                </ContentView>
+            </StackLayout>
+            <ListView x:Name="Lista" HasUnevenRows="True" Header="" Footer="" HorizontalOptions="CenterAndExpand" >
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Margin="3" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label  Text="Nombre"  HorizontalOptions="CenterAndExpand" TextColor="Red" Grid.Column="0"></Label>
+                        <Label Text="Precio" HorizontalOptions="CenterAndExpand" TextColor="Blue" Grid.Column="2"></Label>
+                        <Label Text="Cantidad" HorizontalOptions="CenterAndExpand" TextColor="Blue" Grid.Column="4"></Label>
+                        <Label Text="Descripcion" HorizontalOptions="CenterAndExpand" TextColor="Blue" Grid.Column="6"></Label>
+
+
+                    </Grid>
+                </DataTemplate>
+
+            </ListView.HeaderTemplate>
+                </ListView>
+            <CollectionView 
+                    ItemsSource="{Binding BList}"
+                    SelectedItem="{Binding MostrarProducto}"
+                    SelectionChangedCommand="{Binding GoToDetailCommand}"
+                    SelectionMode="Single">
+                <CollectionView.ItemTemplate >
+                    <DataTemplate >
+                        <SwipeView >
+                            <SwipeView.LeftItems >
+                                <SwipeItems >
+                                    <SwipeItem Text="Detalles"
+                                         BackgroundColor="Blue"
+                                          />
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Frame 
+                                BackgroundColor="Black"
+                                Margin="1,0">
+
+                                <Grid Margin="3">
+                                    <Grid.RowDefinitions >
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label MaxLines="1"  FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Text="{Binding Nombres}" Grid.Column="0"></Label>
+                                    <Label  FontAttributes="Bold" Text="{Binding Precios}" HorizontalOptions="Center" Grid.Column="2"></Label>
+                                    <Label MaxLines="1" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Text="{Binding Descripcion}" Grid.Column="4"></Label>
+                                    <Label  FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Text="{Binding Cantidads}" Grid.Column="6"></Label>
+
+                                </Grid>
+                            </Frame>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Grid.Row="0" FontSize="20" Clicked="ButtonRegresar_Clicked" Text="Regresar" BorderColor="#000" BorderWidth="1" FontAttributes="Bold" BackgroundColor="#4bf" BorderRadius="35" TextColor="White" HorizontalOptions="CenterAndExpand" WidthRequest="160" HeightRequest="70" Margin="0,0,20,22" VerticalOptions="End"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
